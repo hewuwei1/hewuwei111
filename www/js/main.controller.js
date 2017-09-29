@@ -12,7 +12,7 @@
         $state.go('welcome');
       }
       else{
-        $state.go('app.Home');
+        $state.go('welcome');
       }
     }]);
 })();
