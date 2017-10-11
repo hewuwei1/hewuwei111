@@ -18,7 +18,7 @@
         if(account.username==$scope.user.username && account.password==$scope.user.password){
          account.isLogin=true;
           localStorageService.update(USER_KEY,account);
-          $state.go('app.Home')
+          $state.go('app.home');
         }
         else {
          $ionicPopup.alert({
