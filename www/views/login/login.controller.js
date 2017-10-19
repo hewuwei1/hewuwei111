@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by Administrator on 2017/9/19.
  */
 (function () {
@@ -15,10 +15,10 @@
           username:'hewuwei',
           password:'123123'
         });
-        if(account.username==$scope.user.username && account.password==$scope.user.password){
+        if(account.username===$scope.user.username && account.password===$scope.user.password){
          account.isLogin=true;
           localStorageService.update(USER_KEY,account);
-          $state.go('app.home');
+          $state.go('app.Home')
         }
         else {
          $ionicPopup.alert({

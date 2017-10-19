@@ -1,14 +1,11 @@
-/**
- * Created by T on 2017/9/28.
- */
 (function () {
   'use strict';
-  angular.module('starter.controllers').controller('ShopEditCtrl',['$scope','$stateParams','localStorageService','$state','$ionicHistory',function ($scope,$stateParams,localStorageService,$state,$ionicHistory) {
-    $scope.title=$stateParams.title;
-    $scope.property=$stateParams.property;
-    $scope.shop=localStorageService.get('Shop',{
-      phone:'12246658',
-      createTime:'2017-9-28 9:19:30',
+  angular.module('starter.controllers').controller('ShopEditCtrl',['$scope','$stateParams','localStorageService','$ionicHistory',function ($scope,$stateParams,localStorageService,$ionicHistory) {
+   $scope.title=$stateParams.title;
+   $scope.property=$stateParams.property;
+    $scope.shop = localStorageService.get('Shop',{
+      phone:'357868582',
+      createTime:'2017-9-27 16:9:9',
       name:'',
       ab:'',
       boss:'',

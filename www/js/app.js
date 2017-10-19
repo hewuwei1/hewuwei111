@@ -4,10 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova','syzj.directives','ngMessages'])
 
-  .run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+  .run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('app', {
         url: '/app',
@@ -42,48 +42,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
-      .state('app.product-add', {
-        url: '/product-add',
-        views: {
-          'menuContent': {
-            templateUrl: 'views/product/product-add.html',
-            controller:'ProductAddCtrl'
-          }
-        }
-      })
-      .state('main',{
-        url:'/',
-        controller:'MainCtrl'
-      })
-      .state('app.shop', {
-        url: '/shop',
-        views: {
-          'menuContent': {
-            templateUrl: 'views/shop/shop.html',
-            controller:'ShopCtrl'
-          }
-        }
+      .state('main', {
+        url: '/',
+        controller: 'MainCtrl'
       })
 
-      .state('app.setting', {
-        url: '/setting',
-        views: {
-          'menuContent': {
-            templateUrl: 'views/setting/setting.html',
-            controller:'SettingCtrl'
-          }
-        }
-      })
-      .state('app.shop-edit', {
-        url: '/shop-edit',
-        params:{title:'',property:''},
-        views: {
-          'menuContent': {
-            templateUrl: 'views/shop/shop-edit.html',
-            controller:'ShopEditCtrl'
-          }
-        }
-      })
       .state('app.browse', {
         url: '/browse',
         views: {
@@ -92,12 +55,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
-      .state('app.home', {
-        url: '/home',
+      .state('app.Home', {
+        url: '/Home',
         views: {
           'menuContent': {
-            templateUrl: 'views/home/home.html',
-            controller:'HomeCtrl'
+            templateUrl: 'views/Home/Home.html',
+            controller: 'HomeCtrl'
           }
         }
       })
@@ -112,9 +75,93 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
+
+
+
+      .state('app.product-add', {
+        url: '/product-add',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/product/product-add.html',
+            controller: 'ProductAddCtrl'
+          }
+        }
+      })
+
+      .state('app.product-list', {
+        url: '/product-list',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/product/product-list.html',
+            controller: 'ProductLoading'
+          }
+        }
+      })
+
       .state('list-inset', {
         url: '/list-inset',
         templateUrl: 'views/list-inset/list-inset.html',
+      })
+
+      .state('app.category-add', {
+        url: '/category-add/:id/:name',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/category/category-add.html',
+            controller: 'CategoryAddCtrl'
+          }
+        }
+      })
+
+      .state('app.shop-edit', {
+        url: '/shop-edit',
+        params:{title:'',property:''},
+        views: {
+          'menuContent': {
+            templateUrl: 'views/shop/shop-edit.html',
+            controller: 'ShopEditCtrl'
+          }
+        }
+      })
+
+      .state('app.shop', {
+        url: '/shop',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/shop/shop.html',
+            controller: 'ShopCtrl'
+          }
+        }
+      })
+
+      .state('app.change-password', {
+        url: '/change-password',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/change-password/change-password.html',
+            controller: 'ChangePasswordCtrl'
+          }
+        }
+      })
+
+      .state('app.setting', {
+        url: '/setting',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/setting/setting.html',
+            controller: 'SettingCtrl'
+          }
+        }
+      })
+
+      .state('app.category-list', {
+        url: '/category-list',
+        views: {
+          'menuContent': {
+            templateUrl: 'views/category/category-list.html',
+            controller: 'CategoryListCtrl'
+          }
+        }
       })
 
       .state('login', {
@@ -128,28 +175,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           'menuContent': {
             templateUrl: 'templates/playlist.html',
             controller: 'PlaylistCtrl'
-          }
-        }
-      })
-      .state('app.category-add', {
-        url: '/category-add/:id/:name',
-        views: {
-          'menuContent': {
-            templateUrl: 'views/category/category-add.html',
-            controller: 'CategoryAddCtrl'
-          }
-        }
-      })
-      .state('change-password', {
-        url: '/change-password',
-        templateUrl: 'views/change-password/change-password.html'
-      })
-      .state('app.category-list', {
-        url: '/category-list',
-        views: {
-          'menuContent': {
-            templateUrl: 'views/category/category-list.html',
-            controller: 'CategoryListCtrl'
           }
         }
       });

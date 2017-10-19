@@ -1,35 +1,25 @@
-/**
- * Created by T on 2017/9/28.
- */
+
 (function () {
   'use strict';
-  angular.module('starter.controllers').controller('SettingCtrl',['$scope','$ionicHistory','$state','localStorageService',function ($scope,$ionicHistory,$state,localStorageService) {
-    $scope.goBack=function () {
-      $ionicHistory.nextViewOptions({
-        disableBack:true
-      });
-      $state.go('app.home')
-    };
-    $scope.$on('$stateChangeSuccess',function () {
-      $scope.shop =localStorageService.get('shop',{
-        shopphone:''
-      })
-    });
-    $scope.shop={
-      shopPhone:'123455549'
-    };
-    $scope.gohome=function () {
-      $ionicPopup.alert({
-        title:'提示',
-        template:'退出成功',
-        okText:'确定',
-        okType:'button-energized'
-      });
-      var  user=localStorageService.get('user');
-      user.isLogin=false;
-      localStorageService.update('user',user)
-      $state.go('login')
-    };
-
-  }])
+  angular.module('starter.controllers')
+    .controller('SettingCtrl',['$scope','$ionicHistory','$state','localStorageService',function ($scope,$ionicHistory,$state,localStorageService) {
+      $scope.goBack=function () {
+        $ionicHistory.nextViewOptions({
+          disableBack:true
+        });
+        $state.go('app.Home')
+      };
+      $scope.shop={
+        shopPhone:'1055130420'
+      };
+      $scope.callPhone=function () {
+        location.href='tel:' + $scope.shop.shopPhone;
+      };
+      $scope.login=function () {
+        var account = localStorageService.get('User')
+          account.isLogin=false;
+          localStorageService.update('User',account);
+          $state.go('app.Home')
+      }
+    }]);
 })();

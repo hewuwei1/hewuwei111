@@ -9856,5 +9856,9 @@ a.button {
   float: left; }
 
 .category-content-right, .category-content-right-footer {
-  width: 60%;
-  margin-left: 40%; }
+  width: 50%;
+  margin-left: 50%; }
+
+.active-item {
+  background-color: #fff;
+  border-left: 4px solid #FF6A3C; }
